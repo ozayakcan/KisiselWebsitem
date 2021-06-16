@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+User-agent: *
+Disallow: /css/
+
+User-agent: *
+Disallow: /images/
+
+User-agent: *
+Disallow: /js/
+
+User-agent: *
+Disallow: /posts/
+
+User-agent: *
+Disallow: /post/
+
+User-agent: *
+Disallow: /composer/
+
+Sitemap: https://www.ozayakcan.xyz/sitemap.xml
