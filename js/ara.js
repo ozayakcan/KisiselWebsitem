@@ -13,10 +13,13 @@ $(document).ready(function() {
             $(".araListe").html("");
         }
     });
-    $("#ara").on("focusout", function() {
-        $(".araListe").html("");
-    });
-
+	var aradiv = document.getElementById("aradiv");
+	aradiv.addEventListener("focusout", function(event) {
+		if (aradiv.contains(event.relatedTarget)) {
+			return;
+		}
+		$(".araListe").html("");
+	});
 });
 
 function ara() {

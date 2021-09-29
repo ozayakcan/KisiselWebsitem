@@ -130,7 +130,7 @@
 	<nav class="navbar fixed-top navbar-dark navbar-expand-lg temaRengi row" aria-label="navmenu">
 		<div class="container ps-2 pe-4 m-0 col-12 temaRengi text-white border-bottom border-warning">
 			<a href="/" class="navbar-brand ps-3">Özay Akcan</a>
-			<div class="order-1 order-lg-2">
+			<div id="aradiv" class="order-1 order-lg-2">
 				<ul class="navbar-nav flex-row" style="display:block;width: 200px;">
 					<input id="ara" class="form-control form-control-sm me-2 temaRengi text-white" type="search" placeholder="Ara" aria-label="Ara">
 				</ul>
