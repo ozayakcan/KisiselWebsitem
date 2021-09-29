@@ -13,8 +13,8 @@
 	$url = $func->url();
 	?>
 	<meta charset="UTF-8">
-	<meta name="google-site-verification" content="Pi2gm_iyQ5VJ_a3QmCMshf0NN-OIjlHIIkCQij5mN3A">
-	<meta name="yandex-verification" content="dca9193f93c028d5">
+	<meta name="google-site-verification" content="9AQApqs50f4dVbwuzqIiQbI-qqlrZUfFkn1U7UVCFtU">
+	<meta name="yandex-verification" content="f7ec56c391f9f309">
 	<meta name="robots" content="index,follow">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php
