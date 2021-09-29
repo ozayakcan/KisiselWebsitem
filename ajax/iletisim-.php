@@ -31,8 +31,8 @@ if ($eposta != "") {
 			$mail->SMTPAuth = true;
 			$mail->Username = "kullanıcıadı";
 			$mail->Password = "şifre";
-			$mail->setFrom("info@ozayakcan.xyz", "info@ozayakcan.xyz");
-			$mail->addAddress("iletisim@ozayakcan.xyz", "İsim");
+			$mail->setFrom("info@ozayakcan.com.tr", "info@ozayakcan.com.tr");
+			$mail->addAddress("iletisim@ozayakcan.com.tr", "İsim");
 			$mail->Subject = 'Mesaj: ' . $eposta;
 			$mail->msgHTML($mesaj);
 			$mail->AltBody = 'HTML mesajı desteklenmiyor.';

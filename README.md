@@ -1,1 +1,1 @@
-Site: https://ozayakcan.xyz/
+Site: https://ozayakcan.com.tr/

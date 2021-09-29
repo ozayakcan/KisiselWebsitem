@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: 127.0.0.1
--- Üretim Zamanı: 16 Haz 2021, 11:55:34
--- Sunucu sürümü: 10.4.17-MariaDB
--- PHP Sürümü: 8.0.2
+-- Anamakine: localhost:3306
+-- Üretim Zamanı: 29 Eyl 2021, 17:00:14
+-- Sunucu sürümü: 10.5.10-MariaDB
+-- PHP Sürümü: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,10 +42,10 @@ CREATE TABLE `calismalar` (
 --
 
 INSERT INTO `calismalar` (`id`, `kategori_id`, `calisma_adi`, `calisma_linki`, `uzanti`, `kucuk_resim`, `resim_url`) VALUES
-(4, 1, 'Tablo Çalışması', 'https://wtt.ozayakcan.xyz/odevler/09112020-tablo', 'HTML', '/images/calismalar/web-tasarimin-temelleri/tablo.png', '/images/calismalar/web-tasarimin-temelleri/tablo.png'),
-(5, 1, 'Listeleme Biçimleri', 'https://wtt.ozayakcan.xyz/odevler/09112020-listeleme', 'HTML', '/images/calismalar/web-tasarimin-temelleri/listeleme.png', '/images/calismalar/web-tasarimin-temelleri/listeleme.png'),
-(6, 1, 'Anchor Çalışması', 'https://wtt.ozayakcan.xyz/odevler/09112020-anchor', 'HTML', '/images/calismalar/web-tasarimin-temelleri/anchor.png', '/images/calismalar/web-tasarimin-temelleri/anchor.png'),
-(7, 1, 'Frame Yapısı', 'https://wtt.ozayakcan.xyz/odevler/16112020-frame', 'HTML', '/images/calismalar/web-tasarimin-temelleri/frame.png', '/images/calismalar/web-tasarimin-temelleri/frame.png'),
+(4, 1, 'Tablo Çalışması', 'https://wtt.ozayakcan.com.tr/odevler/09112020-tablo', 'HTML', '/images/calismalar/web-tasarimin-temelleri/tablo.png', '/images/calismalar/web-tasarimin-temelleri/tablo.png'),
+(5, 1, 'Listeleme Biçimleri', 'https://wtt.ozayakcan.com.tr/odevler/09112020-listeleme', 'HTML', '/images/calismalar/web-tasarimin-temelleri/listeleme.png', '/images/calismalar/web-tasarimin-temelleri/listeleme.png'),
+(6, 1, 'Anchor Çalışması', 'https://wtt.ozayakcan.com.tr/odevler/09112020-anchor', 'HTML', '/images/calismalar/web-tasarimin-temelleri/anchor.png', '/images/calismalar/web-tasarimin-temelleri/anchor.png'),
+(7, 1, 'Frame Yapısı', 'https://wtt.ozayakcan.com.tr/odevler/16112020-frame', 'HTML', '/images/calismalar/web-tasarimin-temelleri/frame.png', '/images/calismalar/web-tasarimin-temelleri/frame.png'),
 (8, 3, 'Smart Filter Kullanımı', 'https://drive.google.com/file/d/1bHxaInja3oQ3ZTyx6_HJQXx99N1Cp5qZ/view?usp=sharing', 'PSD', '/images/calismalar/grafik-ve-animasyon-I/odev-1.png', 'https://drive.google.com/file/d/1Hop913ZGLrdsZuNY_uz7-q3h6R3gvEg5/view?usp=sharing'),
 (9, 3, 'Katman Maskesi Kullanımı', 'https://drive.google.com/file/d/1_Sx-KxmcJmy6vGBAbG_yNjfmwHLQx49K/view?usp=sharing', 'PSD', '/images/calismalar/grafik-ve-animasyon-I/odev-2.png', 'https://drive.google.com/file/d/1LowCAzf36FRU1GOy-7MyYSRKnb9nQ0j5/view?usp=sharing'),
 (10, 3, 'Curves ve Katman Maskesi Kullanımı', 'https://drive.google.com/file/d/1751HmZWIC9p76Ml_MEukt75ZXY3fxmNK/view?usp=sharing', 'PSD', '/images/calismalar/grafik-ve-animasyon-I/odev-3.png', 'https://drive.google.com/file/d/101Awah627YmQQG8ORwGdctan125WuvHE/view?usp=sharing'),
@@ -132,7 +132,7 @@ CREATE TABLE `iletisim_bilgileri` (
 --
 
 INSERT INTO `iletisim_bilgileri` (`id`, `bilgi`, `fa_icon`) VALUES
-(1, 'iletisim@ozayakcan.xyz', 'fa fa-envelope'),
+(1, 'iletisim@ozayakcan.com.tr', 'fa fa-envelope'),
 (2, 'ozay.akcan97@gmail.com', 'fab fa-google');
 
 -- --------------------------------------------------------
@@ -180,7 +180,7 @@ CREATE TABLE `siteler` (
 --
 
 INSERT INTO `siteler` (`id`, `siteadi`, `siteurlsi`, `sitemapurlsi`) VALUES
-(1, 'anasayfa', 'https://ozayakcan.xyz/', 'https://ozayakcan.xyz/sitemap.xml');
+(1, 'anasayfa', 'https://ozayakcan.com.tr/', 'https://ozayakcan.com.tr/sitemap.xml');
 
 --
 -- Dökümü yapılmış tablolar için indeksler

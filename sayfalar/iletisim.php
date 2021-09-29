@@ -2,7 +2,7 @@
 <script src="/js/iletisim.js" type="text/javascript" charset="utf-8" async defer></script>
 <form class="iletisim transparan col-lg-5 col-md-6 col-sm-8 col-12 m-auto p-2">
     <div class="form-group m-auto py-1">
-        <h7>Bunun yerine şu e-postadan bana ulaşabilirsiniz: <a class="alticizgilihv text-white text-decoration-none" href="mailto:iletisim@ozayakcan.xyz">iletisim@ozayakcan.xyz</a></h7>
+        <h7>Bunun yerine şu e-postadan bana ulaşabilirsiniz: <a class="alticizgilihv text-white text-decoration-none" href="mailto:iletisim@ozayakcan.com.tr">iletisim@ozayakcan.com.tr</a></h7>
     </div>
     <div class="form-group mt-3 m-auto py-1" data-nosnippet>
         <span id="eposta_hata" class="col-12 float-none text-start text-danger fs-6"></span>

@@ -19,4 +19,4 @@ Disallow: /post/
 User-agent: *
 Disallow: /composer/
 
-Sitemap: https://www.ozayakcan.xyz/sitemap.xml
+Sitemap: https://www.ozayakcan.com.tr/sitemap.xml

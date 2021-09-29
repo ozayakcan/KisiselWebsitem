@@ -20,7 +20,7 @@ var mesajKarakter = 20;
 var eposta_hata = "Geçerli bir e-posta adresi girin.";
 var eposta_bos = "E-posta adresini boş bırakamazsınız.";
 var botkontrolu = "Lütfen bot kontrolünü tamamlayın *";
-var mesajbasarisiz = 'Mesajınız gönderilemedi lütfen daha sonra tekrar deneyin ya da <a class="alticizgilihv text-decoration-none" href="mailto:iletisim@ozayakcan.xyz">iletisim@ozayakcan.xyz</a> adresinden bana ulaşın.';
+var mesajbasarisiz = 'Mesajınız gönderilemedi lütfen daha sonra tekrar deneyin ya da <a class="alticizgilihv text-decoration-none" href="mailto:iletisim@ozayakcan.com.tr">iletisim@ozayakcan.com.tr</a> adresinden bana ulaşın.';
 
 function gecerliEposta(v) {
     var r = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
