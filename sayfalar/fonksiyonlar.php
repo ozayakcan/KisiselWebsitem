@@ -16,7 +16,7 @@ class func
 	}
 	public function domain(){
 		$host = $_SERVER['SERVER_NAME'];
-		return $host;
+		return str_replace("www.", "", $host);
 	}
 	public function protocol(){
 		$protocol = 'http';
