@@ -1,67 +1,78 @@
+<?php
+$klasor = $_SERVER['DOCUMENT_ROOT'];
+$fonksiyonlar = $klasor . "/sayfalar/fonksiyonlar.php";
+include($fonksiyonlar);
+$func = new func;
+$url = $func->url();
+$domain = $func->domain();
+$protocol = $func->protocol();
+header('Content-Type: text/xml');
+?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
-<loc>https://ozayakcan.com.tr/</loc>
+<loc><?=$protocol.$domain;?>/</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>1.00</priority>
 </url>
 <url>
-<loc>https://ozayakcan.com.tr/index.html</loc>
+<loc><?=$protocol.$domain;?>/index.html</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ozayakcan.com.tr/index.php</loc>
+<loc><?=$protocol.$domain;?>/index.php</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ozayakcan.com.tr/hakkimda.html</loc>
+<loc><?=$protocol.$domain;?>/hakkimda.html</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ozayakcan.com.tr/iletisim.html</loc>
+<loc><?=$protocol.$domain;?>/iletisim.html</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ozayakcan.com.tr/linkler.html</loc>
+<loc><?=$protocol.$domain;?>/linkler.html</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ozayakcan.com.tr/calismalar.html</loc>
+<loc><?=$protocol.$domain;?>/calismalar.html</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ozayakcan.com.tr/calismalar/web-tasarimin-temelleri.html</loc>
+<loc><?=$protocol.$domain;?>/calismalar/web-tasarimin-temelleri.html</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ozayakcan.com.tr/calismalar/programlama-temelleri.html</loc>
+<loc><?=$protocol.$domain;?>/calismalar/programlama-temelleri.html</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ozayakcan.com.tr/calismalar/grafik-ve-animasyon-I.html</loc>
+<loc><?=$protocol.$domain;?>/calismalar/grafik-ve-animasyon-I.html</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ozayakcan.com.tr/calismalar/web-editoru.html</loc>
+<loc><?=$protocol.$domain;?>/calismalar/web-editoru.html</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ozayakcan.com.tr/calismalar/gorsel-programlama-I.html</loc>
+<loc><?=$protocol.$domain;?>/calismalar/gorsel-programlama-I.html</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>0.80</priority>
 </url>
 <url>
-<loc>https://ozayakcan.com.tr/calismalar/grafik-ve-animasyon-II.html</loc>
+<loc><?=$protocol.$domain;?>/calismalar/grafik-ve-animasyon-II.html</loc>
 <lastmod>2021-03-01T16:17:41+00:00</lastmod>
 <priority>0.80</priority>
 </url>
 </urlset>
+

@@ -3,6 +3,7 @@ $klasor = $_SERVER['DOCUMENT_ROOT'];
 $fonksiyonlar = $klasor . "/sayfalar/fonksiyonlar.php";
 include($fonksiyonlar);
 $func = new func;
+$url = $func->url();
 $domain = $func->domain();
 $protocol = $func->protocol();
 header('Content-Type: text/txt');
