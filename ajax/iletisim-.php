@@ -10,7 +10,12 @@ use PHPMailer\PHPMailer\Exception;
 require $klasor . '/PHPMailer/src/Exception.php';
 require $klasor . '/PHPMailer/src/PHPMailer.php';
 require $klasor . '/PHPMailer/src/SMTP.php';
-
+$fonksiyonlar = $klasor . "/sayfalar/fonksiyonlar.php";
+include($fonksiyonlar);
+$func = new func;
+$domain = $func->domain();
+$gonderici = "info@".$domain; // Mail göndermek için kullanılacak eposta
+$alici = "iletisim@".$domain; // Mesajın alınacağı eposta adresi
 $eposta = $_POST['eposta'];
 $mesaj = $_POST['mesaj'];
 $gonderildi = "0";
@@ -31,8 +36,8 @@ if ($eposta != "") {
 			$mail->SMTPAuth = true;
 			$mail->Username = "kullanıcıadı";
 			$mail->Password = "şifre";
-			$mail->setFrom("info@ozayakcan.com.tr", "info@ozayakcan.com.tr");
-			$mail->addAddress("iletisim@ozayakcan.com.tr", "İsim");
+			$mail->setFrom($gonderici, $gonderici);
+			$mail->addAddress($alici, "İsim");
 			$mail->Subject = 'Mesaj: ' . $eposta;
 			$mail->msgHTML($mesaj);
 			$mail->AltBody = 'HTML mesajı desteklenmiyor.';

@@ -20,7 +20,6 @@ var mesajKarakter = 20;
 var eposta_hata = "Geçerli bir e-posta adresi girin.";
 var eposta_bos = "E-posta adresini boş bırakamazsınız.";
 var botkontrolu = "Lütfen bot kontrolünü tamamlayın *";
-var mesajbasarisiz = 'Mesajınız gönderilemedi lütfen daha sonra tekrar deneyin ya da <a class="alticizgilihv text-decoration-none" href="mailto:iletisim@ozayakcan.com.tr">iletisim@ozayakcan.com.tr</a> adresinden bana ulaşın.';
 
 function gecerliEposta(v) {
     var r = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
@@ -73,7 +72,8 @@ $(document).ready(function() {
         var mesaj = $("#mesaj").val();
         $(".yukleniyor").show();
         $("#eposta_hata").text("");
-        $("#mesajBasarisizAciklama").html("");
+        $("#mesajBasarisizAciklama1").hide();
+        $("#mesajBasarisizAciklama2").hide();
         if ($("#eposta").val().length > 0) {
             if (gecerliEposta($("input#eposta").val())) {
                 if ($("#mesaj").val().length >= mesajKarakter) {
@@ -96,10 +96,11 @@ $(document).ready(function() {
                                     if (hataturu == "eposta") {
                                         $("#eposta_hata").text(hatamesaji);
                                     } else if (hataturu == "mesaj") {
-                                        $("#mesajBasarisizAciklama").html(hatamesaji);
+                                        $("#mesajBasarisizAciklama1").html(hatamesaji);
+                                        $("#mesajBasarisizAciklama1").show();
                                         $('#mesajbasarisiz').modal("show");
                                     } else {
-                                        $("#mesajBasarisizAciklama").html(mesajbasarisiz);
+                                        $("#mesajBasarisizAciklama2").show();
                                         $('#mesajbasarisiz').modal("show");
                                     }
                                 }
@@ -107,7 +108,7 @@ $(document).ready(function() {
                                 butonKontrol();
                             },
                             error: function(data) {
-                                $("#mesajBasarisizAciklama").html(mesajbasarisiz);
+                                $("#mesajBasarisizAciklama2").show();
                                 $('#mesajbasarisiz').modal("show");
                                 $(".yukleniyor").hide();
                                 butonKontrol();

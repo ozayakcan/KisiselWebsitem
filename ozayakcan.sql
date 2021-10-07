@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 07 Eki 2021, 17:55:41
+-- Üretim Zamanı: 07 Eki 2021, 19:01:26
 -- Sunucu sürümü: 10.4.17-MariaDB
 -- PHP Sürümü: 8.0.2
 
@@ -38,8 +38,8 @@ CREATE TABLE `altsayfalar` (
 --
 
 INSERT INTO `altsayfalar` (`id`, `adi`, `link`) VALUES
-(1, 'Web Tasarımın Temelleri', 'https://wtt.ozayakcan.com.tr/'),
-(2, 'İçerik Yönetim Sistemi', 'https://iys.ozayakcan.com.tr/');
+(1, 'Web Tasarımın Temelleri', 'wtt'),
+(2, 'İçerik Yönetim Sistemi', 'iys');
 
 -- --------------------------------------------------------
 
@@ -51,6 +51,7 @@ CREATE TABLE `calismalar` (
   `id` int(11) NOT NULL,
   `kategori_id` int(11) NOT NULL,
   `calisma_adi` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `altsayfa` varchar(5) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '',
   `calisma_linki` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
   `uzanti` varchar(5) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
   `kucuk_resim` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
@@ -61,27 +62,27 @@ CREATE TABLE `calismalar` (
 -- Tablo döküm verisi `calismalar`
 --
 
-INSERT INTO `calismalar` (`id`, `kategori_id`, `calisma_adi`, `calisma_linki`, `uzanti`, `kucuk_resim`, `resim_url`) VALUES
-(4, 1, 'Tablo Çalışması', 'https://wtt.ozayakcan.com.tr/odevler/09112020-tablo', 'HTML', '/images/calismalar/web-tasarimin-temelleri/tablo.png', '/images/calismalar/web-tasarimin-temelleri/tablo.png'),
-(5, 1, 'Listeleme Biçimleri', 'https://wtt.ozayakcan.com.tr/odevler/09112020-listeleme', 'HTML', '/images/calismalar/web-tasarimin-temelleri/listeleme.png', '/images/calismalar/web-tasarimin-temelleri/listeleme.png'),
-(6, 1, 'Anchor Çalışması', 'https://wtt.ozayakcan.com.tr/odevler/09112020-anchor', 'HTML', '/images/calismalar/web-tasarimin-temelleri/anchor.png', '/images/calismalar/web-tasarimin-temelleri/anchor.png'),
-(7, 1, 'Frame Yapısı', 'https://wtt.ozayakcan.com.tr/odevler/16112020-frame', 'HTML', '/images/calismalar/web-tasarimin-temelleri/frame.png', '/images/calismalar/web-tasarimin-temelleri/frame.png'),
-(8, 3, 'Smart Filter Kullanımı', 'https://drive.google.com/file/d/1bHxaInja3oQ3ZTyx6_HJQXx99N1Cp5qZ/view?usp=sharing', 'PSD', '/images/calismalar/grafik-ve-animasyon-I/odev-1.png', 'https://drive.google.com/file/d/1Hop913ZGLrdsZuNY_uz7-q3h6R3gvEg5/view?usp=sharing'),
-(9, 3, 'Katman Maskesi Kullanımı', 'https://drive.google.com/file/d/1_Sx-KxmcJmy6vGBAbG_yNjfmwHLQx49K/view?usp=sharing', 'PSD', '/images/calismalar/grafik-ve-animasyon-I/odev-2.png', 'https://drive.google.com/file/d/1LowCAzf36FRU1GOy-7MyYSRKnb9nQ0j5/view?usp=sharing'),
-(10, 3, 'Curves ve Katman Maskesi Kullanımı', 'https://drive.google.com/file/d/1751HmZWIC9p76Ml_MEukt75ZXY3fxmNK/view?usp=sharing', 'PSD', '/images/calismalar/grafik-ve-animasyon-I/odev-3.png', 'https://drive.google.com/file/d/101Awah627YmQQG8ORwGdctan125WuvHE/view?usp=sharing'),
-(11, 3, 'Katman Maskesi - Brightness - Color Balance Kullanımı', 'https://drive.google.com/file/d/1PsA3sWPSRGZD1CHRTMlu-NJXeRmUJRm2/view?usp=sharing', 'PSD', '/images/calismalar/grafik-ve-animasyon-I/odev-4.png', 'https://drive.google.com/file/d/1yUrXRRYTgJM4tddn14v05077w0oy7d1K/view?usp=sharing'),
-(12, 2, 'C#\'ta Veri Tipleri - İsimlendirme Kuralları - Operatörler', 'https://drive.google.com/file/d/1pxXDIY4kVJOryFg_MgolED-el1-vwfNH/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-1.JPG', '/images/calismalar/programlama-temelleri/hafta-1.JPG'),
-(13, 2, 'Referans ve Değer Veri Tipleri - İkilik ve Onluk Sayı Sistemleri', 'https://drive.google.com/file/d/1tcKAth9klE4IIDl2M9IRFNs9F5xVPD3m/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-2.JPG', '/images/calismalar/programlama-temelleri/hafta-2.JPG'),
-(14, 2, 'Windows Form\'da Genel Kontroller - Erişim Belirteçleri', 'https://drive.google.com/file/d/1mtwpByKufufAJ4R1xUAOjs9MBKn-oe4D/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-3.JPG', '/images/calismalar/programlama-temelleri/hafta-3.JPG'),
-(15, 2, 'Referans ve Değer Veri Tipleri - İkilik ve Onluk Sayı Sistemleri', 'https://drive.google.com/file/d/1fW_G10U4HFBosbPoRVzCFmEhYxppVU1K/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-4.JPG', '/images/calismalar/programlama-temelleri/hafta-4.JPG'),
-(16, 2, 'Switch İfadesi Kullanımı - Diziler (Array)', 'https://drive.google.com/file/d/1bdaQFKyzgH7kuIh1v0OPvoqIzIr5fStu/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-5.JPG', '/images/calismalar/programlama-temelleri/hafta-5.JPG'),
-(17, 2, 'For Döngüsü Kullanımı', 'https://drive.google.com/file/d/1Nrfyt38LBizxlWY6rYOWg8YogwxmlgYS/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-6.JPG', '/images/calismalar/programlama-temelleri/hafta-6.JPG'),
-(18, 2, 'Değişkenlerin Varsayılan Değerleri - Sınıf(Class) Kütüphanesi', 'https://drive.google.com/file/d/1n3zg-lvei9SqbNmPvCvdF5jOJO50M01r/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-7.JPG', '/images/calismalar/programlama-temelleri/hafta-7.JPG'),
-(19, 2, 'Sınıf Kütüphanesi - Properties', 'https://drive.google.com/file/d/1zbw5FyIFf1-jTgitm_4XWJjoLsSJ7Kdu/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-8.JPG', '/images/calismalar/programlama-temelleri/hafta-8.JPG'),
-(20, 2, 'Çok Boyutlu Diziler - Foreach Kullanımı', 'https://drive.google.com/file/d/1GZbKAwyc-kyDFnDD9E8i_d9SifMLmkXf/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-9.JPG', '/images/calismalar/programlama-temelleri/hafta-9.JPG'),
-(21, 2, 'Try/Catch İfadesi - DialogBox Kullanımı', 'https://drive.google.com/file/d/1IhoXusq5hjSpAKANu3w0RhYtQn-PBmw6/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-10.JPG', '/images/calismalar/programlama-temelleri/hafta-10.JPG'),
-(23, 8, 'Neon Poster Çalışması', 'https://drive.google.com/file/d/1_J3jD11ECS5YoPlY42lXt7pvNp_v_l0y/view?usp=sharing', 'PDF', '/images/calismalar/grafik-ve-animasyon-II/odev-1.png', '/images/calismalar/grafik-ve-animasyon-II/odev-1.png'),
-(24, 8, 'Harf Logo Çalışması', 'https://drive.google.com/file/d/1KfSetn3y357AoKp3UWoeiGhhl573kOMu/view?usp=sharing', 'PDF', '/images/calismalar/grafik-ve-animasyon-II/odev-2.png', '/images/calismalar/grafik-ve-animasyon-II/odev-2.png');
+INSERT INTO `calismalar` (`id`, `kategori_id`, `calisma_adi`, `altsayfa`, `calisma_linki`, `uzanti`, `kucuk_resim`, `resim_url`) VALUES
+(4, 1, 'Tablo Çalışması', 'wtt', '/odevler/09112020-tablo', 'HTML', '/images/calismalar/web-tasarimin-temelleri/tablo.png', '/images/calismalar/web-tasarimin-temelleri/tablo.png'),
+(5, 1, 'Listeleme Biçimleri', 'wtt', '/odevler/09112020-listeleme', 'HTML', '/images/calismalar/web-tasarimin-temelleri/listeleme.png', '/images/calismalar/web-tasarimin-temelleri/listeleme.png'),
+(6, 1, 'Anchor Çalışması', 'wtt', '/odevler/09112020-anchor', 'HTML', '/images/calismalar/web-tasarimin-temelleri/anchor.png', '/images/calismalar/web-tasarimin-temelleri/anchor.png'),
+(7, 1, 'Frame Yapısı', 'wtt', '/odevler/16112020-frame', 'HTML', '/images/calismalar/web-tasarimin-temelleri/frame.png', '/images/calismalar/web-tasarimin-temelleri/frame.png'),
+(8, 3, 'Smart Filter Kullanımı', '', 'https://drive.google.com/file/d/1bHxaInja3oQ3ZTyx6_HJQXx99N1Cp5qZ/view?usp=sharing', 'PSD', '/images/calismalar/grafik-ve-animasyon-I/odev-1.png', 'https://drive.google.com/file/d/1Hop913ZGLrdsZuNY_uz7-q3h6R3gvEg5/view?usp=sharing'),
+(9, 3, 'Katman Maskesi Kullanımı', '', 'https://drive.google.com/file/d/1_Sx-KxmcJmy6vGBAbG_yNjfmwHLQx49K/view?usp=sharing', 'PSD', '/images/calismalar/grafik-ve-animasyon-I/odev-2.png', 'https://drive.google.com/file/d/1LowCAzf36FRU1GOy-7MyYSRKnb9nQ0j5/view?usp=sharing'),
+(10, 3, 'Curves ve Katman Maskesi Kullanımı', '', 'https://drive.google.com/file/d/1751HmZWIC9p76Ml_MEukt75ZXY3fxmNK/view?usp=sharing', 'PSD', '/images/calismalar/grafik-ve-animasyon-I/odev-3.png', 'https://drive.google.com/file/d/101Awah627YmQQG8ORwGdctan125WuvHE/view?usp=sharing'),
+(11, 3, 'Katman Maskesi - Brightness - Color Balance Kullanımı', '', 'https://drive.google.com/file/d/1PsA3sWPSRGZD1CHRTMlu-NJXeRmUJRm2/view?usp=sharing', 'PSD', '/images/calismalar/grafik-ve-animasyon-I/odev-4.png', 'https://drive.google.com/file/d/1yUrXRRYTgJM4tddn14v05077w0oy7d1K/view?usp=sharing'),
+(12, 2, 'C#\'ta Veri Tipleri - İsimlendirme Kuralları - Operatörler', '', 'https://drive.google.com/file/d/1pxXDIY4kVJOryFg_MgolED-el1-vwfNH/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-1.JPG', '/images/calismalar/programlama-temelleri/hafta-1.JPG'),
+(13, 2, 'Referans ve Değer Veri Tipleri - İkilik ve Onluk Sayı Sistemleri', '', 'https://drive.google.com/file/d/1tcKAth9klE4IIDl2M9IRFNs9F5xVPD3m/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-2.JPG', '/images/calismalar/programlama-temelleri/hafta-2.JPG'),
+(14, 2, 'Windows Form\'da Genel Kontroller - Erişim Belirteçleri', '', 'https://drive.google.com/file/d/1mtwpByKufufAJ4R1xUAOjs9MBKn-oe4D/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-3.JPG', '/images/calismalar/programlama-temelleri/hafta-3.JPG'),
+(15, 2, 'Referans ve Değer Veri Tipleri - İkilik ve Onluk Sayı Sistemleri', '', 'https://drive.google.com/file/d/1fW_G10U4HFBosbPoRVzCFmEhYxppVU1K/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-4.JPG', '/images/calismalar/programlama-temelleri/hafta-4.JPG'),
+(16, 2, 'Switch İfadesi Kullanımı - Diziler (Array)', '', 'https://drive.google.com/file/d/1bdaQFKyzgH7kuIh1v0OPvoqIzIr5fStu/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-5.JPG', '/images/calismalar/programlama-temelleri/hafta-5.JPG'),
+(17, 2, 'For Döngüsü Kullanımı', '', 'https://drive.google.com/file/d/1Nrfyt38LBizxlWY6rYOWg8YogwxmlgYS/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-6.JPG', '/images/calismalar/programlama-temelleri/hafta-6.JPG'),
+(18, 2, 'Değişkenlerin Varsayılan Değerleri - Sınıf(Class) Kütüphanesi', '', 'https://drive.google.com/file/d/1n3zg-lvei9SqbNmPvCvdF5jOJO50M01r/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-7.JPG', '/images/calismalar/programlama-temelleri/hafta-7.JPG'),
+(19, 2, 'Sınıf Kütüphanesi - Properties', '', 'https://drive.google.com/file/d/1zbw5FyIFf1-jTgitm_4XWJjoLsSJ7Kdu/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-8.JPG', '/images/calismalar/programlama-temelleri/hafta-8.JPG'),
+(20, 2, 'Çok Boyutlu Diziler - Foreach Kullanımı', '', 'https://drive.google.com/file/d/1GZbKAwyc-kyDFnDD9E8i_d9SifMLmkXf/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-9.JPG', '/images/calismalar/programlama-temelleri/hafta-9.JPG'),
+(21, 2, 'Try/Catch İfadesi - DialogBox Kullanımı', '', 'https://drive.google.com/file/d/1IhoXusq5hjSpAKANu3w0RhYtQn-PBmw6/view?usp=sharing', 'PDF', '/images/calismalar/programlama-temelleri/hafta-10.JPG', '/images/calismalar/programlama-temelleri/hafta-10.JPG'),
+(23, 8, 'Neon Poster Çalışması', '', 'https://drive.google.com/file/d/1_J3jD11ECS5YoPlY42lXt7pvNp_v_l0y/view?usp=sharing', 'PDF', '/images/calismalar/grafik-ve-animasyon-II/odev-1.png', '/images/calismalar/grafik-ve-animasyon-II/odev-1.png'),
+(24, 8, 'Harf Logo Çalışması', '', 'https://drive.google.com/file/d/1KfSetn3y357AoKp3UWoeiGhhl573kOMu/view?usp=sharing', 'PDF', '/images/calismalar/grafik-ve-animasyon-II/odev-2.png', '/images/calismalar/grafik-ve-animasyon-II/odev-2.png');
 
 -- --------------------------------------------------------
 
@@ -143,6 +144,7 @@ INSERT INTO `fotogaleri` (`id`, `resim_url`) VALUES
 
 CREATE TABLE `iletisim_bilgileri` (
   `id` int(11) NOT NULL,
+  `yerel` int(1) NOT NULL DEFAULT 0,
   `bilgi` varchar(150) COLLATE utf8_turkish_ci NOT NULL,
   `fa_icon` varchar(15) COLLATE utf8_turkish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
@@ -151,9 +153,9 @@ CREATE TABLE `iletisim_bilgileri` (
 -- Tablo döküm verisi `iletisim_bilgileri`
 --
 
-INSERT INTO `iletisim_bilgileri` (`id`, `bilgi`, `fa_icon`) VALUES
-(1, 'iletisim@ozayakcan.com.tr', 'fa fa-envelope'),
-(2, 'ozay.akcan97@gmail.com', 'fab fa-google');
+INSERT INTO `iletisim_bilgileri` (`id`, `yerel`, `bilgi`, `fa_icon`) VALUES
+(1, 1, 'iletisim', 'fa fa-envelope'),
+(2, 0, 'ozay.akcan97@gmail.com', 'fab fa-google');
 
 -- --------------------------------------------------------
 
@@ -181,26 +183,6 @@ INSERT INTO `linkler` (`id`, `tur`, `adi`, `ek`, `linki`) VALUES
 (5, 0, 'Doğukan Ateş', 'in', 'https://dogukanates.xyz/'),
 (6, 1, 'Adnan Menderes Üniversitesi', 'nin', 'https://www.adu.edu.tr/'),
 (7, 1, 'Aydın Meslek Yüksekokulu', 'nun', 'https://akademik.adu.edu.tr/myo/aymes/');
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `siteler`
---
-
-CREATE TABLE `siteler` (
-  `id` int(11) NOT NULL,
-  `siteadi` varchar(30) COLLATE utf8_turkish_ci NOT NULL,
-  `siteurlsi` varchar(150) COLLATE utf8_turkish_ci NOT NULL,
-  `sitemapurlsi` varchar(150) COLLATE utf8_turkish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `siteler`
---
-
-INSERT INTO `siteler` (`id`, `siteadi`, `siteurlsi`, `sitemapurlsi`) VALUES
-(1, 'anasayfa', 'https://ozayakcan.com.tr/', 'https://ozayakcan.com.tr/sitemap.xml');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -243,12 +225,6 @@ ALTER TABLE `linkler`
   ADD PRIMARY KEY (`id`);
 
 --
--- Tablo için indeksler `siteler`
---
-ALTER TABLE `siteler`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
@@ -287,12 +263,6 @@ ALTER TABLE `iletisim_bilgileri`
 --
 ALTER TABLE `linkler`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- Tablo için AUTO_INCREMENT değeri `siteler`
---
-ALTER TABLE `siteler`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,9 +1,18 @@
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="/js/iletisim.js" type="text/javascript" charset="utf-8" async defer></script>
 <form class="iletisim transparan col-lg-5 col-md-6 col-sm-8 col-12 m-auto p-2">
-    <div class="form-group m-auto py-1">
-        <h7>Bunun yerine şu e-postadan bana ulaşabilirsiniz: <a class="alticizgilihv text-white text-decoration-none" href="mailto:iletisim@ozayakcan.com.tr">iletisim@ozayakcan.com.tr</a></h7>
-    </div>
+    <?php
+    $iletisim1_sql = "SELECT * FROM iletisim_bilgileri WHERE yerel = 1 LIMIT 1";
+    $iletisim1_conn = $conn->query($iletisim1_sql);
+    if(mysqli_num_rows($iletisim1_conn) > 0){
+        $iletisim1 = mysqli_fetch_array($iletisim1_conn);
+        $iletisimadresi1 = $iletisim1["bilgi"]."@".$domain;
+        echo '<div class="form-group m-auto py-1">
+        <h7>Bunun yerine şu e-postadan bana ulaşabilirsiniz: <a class="alticizgilihv text-white text-decoration-none" href="mailto:'.$iletisimadresi1.'">'.$iletisimadresi1.'</a></h7>
+    </div>';
+    }
+    ?>
+   
     <div class="form-group mt-3 m-auto py-1" data-nosnippet>
         <span id="eposta_hata" class="col-12 float-none text-start text-danger fs-6"></span>
     </div>
@@ -50,8 +59,22 @@
                 <h5 class="modal-title" id="mesajbasarisizLabel">Mesaj Gönderme Başarısız</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div id="mesajBasarisizAciklama" class="modal-body bg-light text-dark text-start">
+            <div id="mesajBasarisizAciklama1" class="modal-body bg-light text-dark text-start">
 
+            </div>
+            <div id="mesajBasarisizAciklama2" class="modal-body bg-light text-dark text-start">
+                <?php
+                $iletisim2_sql = "SELECT * FROM iletisim_bilgileri WHERE yerel = 1 LIMIT 1";
+                $iletisim2_conn = $conn->query($iletisim2_sql);
+                if(mysqli_num_rows($iletisim2_conn) > 0){
+                    $iletisim2 = mysqli_fetch_array($iletisim2_conn);
+                    $iletisimadresi2 = $iletisim2["bilgi"]."@".$domain;
+                    echo 'Mesajınız gönderilemedi lütfen daha sonra tekrar deneyin ya da <a class="alticizgilihv text-decoration-none" href="mailto:'.$iletisimadresi2.'">'.$iletisimadresi2.'</a> adresinden bana ulaşın.';
+                }else{
+                    echo "Mesajınız gönderilemedi lütfen daha sonra tekrar deneyin.";
+                }
+                ?>
+                
             </div>
             <div class="modal-footer bg-light text-dark">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>

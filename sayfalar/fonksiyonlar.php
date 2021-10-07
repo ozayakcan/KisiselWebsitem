@@ -14,6 +14,18 @@ class func
 	{
 		return $_SERVER['HTTP_HOST'];
 	}
+	public function domain(){
+		$host = $_SERVER['HTTP_HOST'];
+		preg_match("/[^\.\/]+\.[^\.\/]+$/", $host, $domain);
+		return $domain[0];
+	}
+	public function protocol(){
+		$protocol = 'http';
+		if (isset($_SERVER['HTTPS'])) {
+			$protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+		}
+		return $protocol . "://";
+	}
 	public function ip()
 	{
 		if (!empty($_SERVER['HTTP_CLIENT_IP'])) {

@@ -11,6 +11,8 @@
 	$func = new func;
 
 	$url = $func->url();
+	$domain = $func->domain();
+	$protocol = $func->protocol();
 	?>
 	<meta charset="UTF-8">
 	<meta name="google-site-verification" content="9AQApqs50f4dVbwuzqIiQbI-qqlrZUfFkn1U7UVCFtU">
@@ -171,7 +173,7 @@
 							$altsayfalar_navbar_conn = $conn->query($altsayfalar_navbar_sql);
 							if (mysqli_num_rows($altsayfalar_navbar_conn) > 0) {
 								while ($altsayfalar_menu = $altsayfalar_navbar_conn->fetch_assoc()) {
-									echo '<li><a class="dropdown-item text-white text-lg-center" target="_blank" href="'.$altsayfalar_menu["link"].'">' . $altsayfalar_menu["adi"] . '</a></li>';
+									echo '<li><a class="dropdown-item text-white text-lg-center" target="_blank" href="'.$protocol.$altsayfalar_menu["link"].'.'.$domain.'/">' . $altsayfalar_menu["adi"] . '</a></li>';
 								}
 							} else {
 								echo '<li><a class="dropdown-item text-white text-lg-center" href="javascript:;">Eklenecek</a></li>';
@@ -270,8 +272,12 @@
 						$iletisim_conn = $conn->query($iletisim_sql);
 						if (mysqli_num_rows($iletisim_conn) > 0) {
 							while ($iletisim = $iletisim_conn->fetch_assoc()) {
+								$iletisimadresi = $iletisim["bilgi"];
+								if($iletisim["yerel"] == 1){
+									$iletisimadresi = $iletisim["bilgi"]."@".$domain;
+								}
 								echo '<li>
-								<h7><i class="' . $iletisim["fa_icon"] . '" aria-hidden="true"></i> ' . $iletisim["bilgi"] . '</h7>
+								<h7><i class="' . $iletisim["fa_icon"] . '" aria-hidden="true"></i> ' . $iletisimadresi . '</h7>
 							</li>';
 							}
 						}

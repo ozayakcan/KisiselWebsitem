@@ -5,6 +5,7 @@ include($baglan);
 $fonksiyonlar = $klasor . "/sayfalar/fonksiyonlar.php";
 include($fonksiyonlar);
 $func = new func;
+$domain = $func->domain();
 $arama = $_GET['arama'];
 if (strlen($arama) > 1) {
     $sonuc = "";
@@ -27,7 +28,11 @@ if (strlen($arama) > 1) {
                 $iletisim_conn = $conn->query($iletisim_sql);
                 if(mysqli_num_rows($iletisim_conn) > 0){
                     while ($iletisim = $iletisim_conn->fetch_assoc()) {
-                        $sonuc .= '<a href="mailto:'.$iletisim["bilgi"].'" class="list-group-item list-group-item-action temaRengi text-white"><i class="'.$iletisim["fa_icon"].'" aria-hidden="true"></i> ' . $iletisim["bilgi"].'</a>';
+                        $iletisimadresi = $iletisim["bilgi"];
+                        if($iletisim["yerel"] == 1){
+                            $iletisimadresi = $iletisim["bilgi"]."@".$domain;
+                        }
+                        $sonuc .= '<a href="mailto:'.$iletisimadresi.'" class="list-group-item list-group-item-action temaRengi text-white"><i class="'.$iletisim["fa_icon"].'" aria-hidden="true"></i> ' . $iletisimadresi.'</a>';
                     }
                 }
             }

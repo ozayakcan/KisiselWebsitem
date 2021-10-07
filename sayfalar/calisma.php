@@ -31,7 +31,13 @@ if (isset($_GET["calisma"])) {
 				if ($calisma["kucuk_resim"] != $calisma["resim_url"]) {
 					echo '</br><a target="_blank" href="' . $calisma["resim_url"] . '" class="btn btn-primary fs-6 mb-3">Görselin Tam Boyutu</a>';
 				}
-				echo '</br><a target="_blank" href="' . $calisma["calisma_linki"] . '" class="btn btn-danger fs-6">' . $uzanti . '</a></div></div></div>
+				echo '</br><a target="_blank" href="';
+				if(str_starts_with($calisma["calisma_linki"], "/")){
+					echo $protocol.$calisma["altsayfa"].".".$domain.$calisma["calisma_linki"];
+				}else{
+					echo $calisma["calisma_linki"];
+				}
+				echo '" class="btn btn-danger fs-6">' . $uzanti . '</a></div></div></div>
 					';
 			}
 			echo '</div>';
