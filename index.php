@@ -51,14 +51,14 @@
 				echo '<meta name="description" content="Özay Akcan iletişim bilgileri, ' . $aciklama . '">';
 				echo '<title>İletişim - Özay Akcan</title>';
 				break;
-			case 'fotogaleri':
+			/*case 'fotogaleri':
 				$anasayfaclass = "";
 				$anasayfacurrentpage = "";
 				$fotogalericlass = $aktifclass;
 				$fotogalericurrentpage = $currentPageOzelligi;
 				echo '<meta name="description" content="Özay Akcan foto galeri, ' . $aciklama . '">';
 				echo '<title>Foto Galeri - Özay Akcan</title>';
-				break;
+				break;*/
 			case 'linkler':
 				$anasayfaclass = "";
 				$anasayfacurrentpage = "";
@@ -160,11 +160,25 @@
 					<li class="nav-item px-2<?= $iletisimclass; ?>">
 						<a href="/iletisim.html" class="nav-link text-white" <?= $iletisimcurrentpage; ?>>İletişim</a>
 					</li>
-					<li class="nav-item px-2<?= $fotogalericlass; ?>">
-						<a href="/fotogaleri.html" class="nav-link text-white" <?= $fotogalericurrentpage; ?>>Foto Galeri</a>
-					</li>
 					<li class="nav-item px-2<?= $linklerclass; ?>">
 						<a href="/linkler.html" class="nav-link text-white" <?= $linklercurrentpage; ?>>Linkler</a>
+					</li>
+					<li class="nav-item px-2 dropdown">
+						<a href="#" id="altsayfalar-butonu" class="nav-link text-white dropdown-toggle" id="altsayfalarButon" data-bs-toggle="dropdown" aria-expanded="false">Alt Sayfalarım</a>
+						<ul id="acilir-menu" class="dropdown-menu temaRengi" aria-labelledby="altsayfalarButon">
+							<?php
+							$altsayfalar_navbar_sql = "SELECT * FROM altsayfalar ORDER BY id";
+							$altsayfalar_navbar_conn = $conn->query($altsayfalar_navbar_sql);
+							if (mysqli_num_rows($altsayfalar_navbar_conn) > 0) {
+								while ($altsayfalar_menu = $altsayfalar_navbar_conn->fetch_assoc()) {
+									echo '<li><a class="dropdown-item text-white text-lg-center" target="_blank" href="'.$altsayfalar_menu["link"].'">' . $altsayfalar_menu["adi"] . '</a></li>';
+								}
+							} else {
+								echo '<li><a class="dropdown-item text-white text-lg-center" href="javascript:;">Eklenecek</a></li>';
+							}
+							?>
+
+						</ul>
 					</li>
 					<li class="nav-item px-2<?= $calismalarclass; ?> dropdown">
 						<a href="#" id="calismalar-butonu" class="nav-link text-white dropdown-toggle" id="calismalarButon" data-bs-toggle="dropdown" aria-expanded="false" <?= $calismalarcurrentpage; ?>>Çalışmalarım</a>
@@ -198,9 +212,9 @@
 							case 'hakkimda':
 								include("sayfalar/hakkimda.php");
 								break;
-							case 'fotogaleri':
+							/*case 'fotogaleri':
 								include("sayfalar/fotogaleri.php");
-								break;
+								break;*/
 							case 'iletisim':
 								include("sayfalar/iletisim.php");
 								break;

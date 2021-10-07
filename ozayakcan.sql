@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: localhost:3306
--- Üretim Zamanı: 29 Eyl 2021, 17:00:14
--- Sunucu sürümü: 10.5.10-MariaDB
--- PHP Sürümü: 7.4.22
+-- Anamakine: 127.0.0.1
+-- Üretim Zamanı: 07 Eki 2021, 17:55:41
+-- Sunucu sürümü: 10.4.17-MariaDB
+-- PHP Sürümü: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Veritabanı: `ozayakcan`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `altsayfalar`
+--
+
+CREATE TABLE `altsayfalar` (
+  `id` int(11) NOT NULL,
+  `adi` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `link` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `altsayfalar`
+--
+
+INSERT INTO `altsayfalar` (`id`, `adi`, `link`) VALUES
+(1, 'Web Tasarımın Temelleri', 'https://wtt.ozayakcan.com.tr/'),
+(2, 'İçerik Yönetim Sistemi', 'https://iys.ozayakcan.com.tr/');
 
 -- --------------------------------------------------------
 
@@ -187,6 +207,12 @@ INSERT INTO `siteler` (`id`, `siteadi`, `siteurlsi`, `sitemapurlsi`) VALUES
 --
 
 --
+-- Tablo için indeksler `altsayfalar`
+--
+ALTER TABLE `altsayfalar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `calismalar`
 --
 ALTER TABLE `calismalar`
@@ -225,6 +251,12 @@ ALTER TABLE `siteler`
 --
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
+
+--
+-- Tablo için AUTO_INCREMENT değeri `altsayfalar`
+--
+ALTER TABLE `altsayfalar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `calismalar`
