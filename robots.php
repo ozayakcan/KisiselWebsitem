@@ -27,6 +27,9 @@ User-agent: *
 Disallow: /post/
 
 User-agent: *
+Disallow: /PHPMailer/
+
+User-agent: *
 Disallow: /composer/
 
 Sitemap: <?=$protocol.$domain;?>/sitemap.xml
