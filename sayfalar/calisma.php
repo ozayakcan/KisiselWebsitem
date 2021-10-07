@@ -32,7 +32,8 @@ if (isset($_GET["calisma"])) {
 					echo '</br><a target="_blank" href="' . $calisma["resim_url"] . '" class="btn btn-primary fs-6 mb-3">Görselin Tam Boyutu</a>';
 				}
 				echo '</br><a target="_blank" href="';
-				if(str_starts_with($calisma["calisma_linki"], "/")){
+				
+				if(strlen($calisma["altsayfa"]) > 0){
 					echo $protocol.$calisma["altsayfa"].".".$domain.$calisma["calisma_linki"];
 				}else{
 					echo $calisma["calisma_linki"];

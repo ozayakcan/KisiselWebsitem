@@ -15,9 +15,8 @@ class func
 		return $_SERVER['HTTP_HOST'];
 	}
 	public function domain(){
-		$host = $_SERVER['HTTP_HOST'];
-		preg_match("/[^\.\/]+\.[^\.\/]+$/", $host, $domain);
-		return $domain[0];
+		$host = $_SERVER['SERVER_NAME'];
+		return $host;
 	}
 	public function protocol(){
 		$protocol = 'http';
