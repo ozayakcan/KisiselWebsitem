@@ -11,6 +11,8 @@ RewriteRule ^hakkimda.html(/?)+$    index.php?sayfa=hakkimda
 RewriteRule ^iletisim.html(/?)+$    index.php?sayfa=iletisim
 RewriteRule ^linkler.html(/?)+$    index.php?sayfa=linkler
 RewriteRule ^calismalar.html(/?)+$    index.php?sayfa=calismalar
+RewriteRule ^sitemap.xml(/?)+$    sayfalar/text/sitemap.php
+RewriteRule ^robots.txt(/?)+$    sayfalar/text/robots.php
 RewriteRule ^calismalar/([a-zA-Z0-9-_]+).html(/?)+$    index.php?sayfa=calisma&calisma=$1
 RewriteRule ^ajax/iletisim(/?)+$    ajax/iletisim.php
 RewriteRule ^ajax/ara(/?)+$    ajax/ara.php
