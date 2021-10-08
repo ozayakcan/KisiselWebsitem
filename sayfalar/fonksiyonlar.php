@@ -15,7 +15,7 @@ class func
 		return $_SERVER['HTTP_HOST'];
 	}
 	public function domain(){
-		$host = $_SERVER['SERVER_NAME'];
+		$host = "ozayakcan.com.tr";
 		return str_replace("www.", "", $host);
 	}
 	public function protocol(){
