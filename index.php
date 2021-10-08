@@ -153,19 +153,19 @@
 
 			<div id="ustmenu" class="collapse navbar-collapse">
 				<ul class="navbar-nav ms-auto navmenu">
-					<li class="nav-item px-2<?= $anasayfaclass; ?>">
+					<li class="nav-item px-3<?= $anasayfaclass; ?>">
 						<a href="/" class="nav-link text-white" <?= $anasayfacurrentpage; ?>>Anasayfa</a>
 					</li>
-					<li class="nav-item px-2<?= $hakkimdaclass; ?>">
+					<li class="nav-item px-3<?= $hakkimdaclass; ?>">
 						<a href="/hakkimda.html" class="nav-link text-white" <?= $hakkimdacurrentpage; ?>>Hakkımda</a>
 					</li>
-					<li class="nav-item px-2<?= $iletisimclass; ?>">
+					<li class="nav-item px-3<?= $iletisimclass; ?>">
 						<a href="/iletisim.html" class="nav-link text-white" <?= $iletisimcurrentpage; ?>>İletişim</a>
 					</li>
-					<li class="nav-item px-2<?= $linklerclass; ?>">
+					<li class="nav-item px-3<?= $linklerclass; ?>">
 						<a href="/linkler.html" class="nav-link text-white" <?= $linklercurrentpage; ?>>Linkler</a>
 					</li>
-					<li class="nav-item px-2 dropdown">
+					<!--<li class="nav-item px-2 dropdown">
 						<a href="#" id="altsayfalar-butonu" class="nav-link text-white dropdown-toggle" id="altsayfalarButon" data-bs-toggle="dropdown" aria-expanded="false">Alt Sayfalarım</a>
 						<ul id="acilir-menu" class="dropdown-menu temaRengi" aria-labelledby="altsayfalarButon">
 							<?php
@@ -181,8 +181,8 @@
 							?>
 
 						</ul>
-					</li>
-					<li class="nav-item px-2<?= $calismalarclass; ?> dropdown">
+					</li>-->
+					<li class="nav-item px-3<?= $calismalarclass; ?> dropdown">
 						<a href="#" id="calismalar-butonu" class="nav-link text-white dropdown-toggle" id="calismalarButon" data-bs-toggle="dropdown" aria-expanded="false" <?= $calismalarcurrentpage; ?>>Çalışmalarım</a>
 						<ul id="acilir-menu" class="dropdown-menu temaRengi" aria-labelledby="calismalarButon">
 							<?php
