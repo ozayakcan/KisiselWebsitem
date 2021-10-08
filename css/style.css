@@ -34,7 +34,8 @@ img:active {
 
 ul#altkisim li a,
 .sosyal-medya,
-.araListe a,
+.araListe1 a,
+.araListe2 a,
 #ustmenu ul li:not(.aktif) a,
 .dropdown-menu>li>a {
     transition: color .3s;
@@ -45,17 +46,15 @@ ul#altkisim li a,
     background-image: none;
     background-color: transparent !important;
 }
-
-#ara::placeholder {
+#ara1::placeholder, #ara2::placeholder {
     color: rgba(255, 255, 255, 0.8);
     opacity: 1;
 }
 
-#ara:-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-#ara::-ms-input-placeholder {
+#ara1:-ms-input-placeholder, 
+#ara1::-ms-input-placeholder, 
+#ara2:-ms-input-placeholder, 
+#ara2::-ms-input-placeholder  {
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -66,7 +65,7 @@ ul#altkisim>li a:hover,
     color: #FFFFFFC8 !important;
 }
 
-.araListe a:hover {
+.araListe a:hover, .araListe2 a:hover {
     color: #FFFFFFC8 !important;
 }
 

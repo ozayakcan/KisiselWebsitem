@@ -10,6 +10,7 @@ $(document).ready(function() {
     $("#ara1").on("change textInput input", function() {
         var arama = $("#ara1").val();
         if (arama.length <= 0) {
+            $(".araListe1").hide();
             $(".araListe1").html("");
         }
     });
@@ -18,6 +19,7 @@ $(document).ready(function() {
 		if (aradiv1.contains(event.relatedTarget)) {
 			return;
 		}
+        $(".araListe1").hide();
 		$(".araListe1").html("");
 	});
     
@@ -32,6 +34,7 @@ $(document).ready(function() {
     $("#ara2").on("change textInput input", function() {
         var arama = $("#ara2").val();
         if (arama.length <= 0) {
+            $(".araListe2").hide();
             $(".araListe2").html("");
         }
     });
@@ -40,6 +43,7 @@ $(document).ready(function() {
 		if (aradiv2.contains(event.relatedTarget)) {
 			return;
 		}
+        $(".araListe2").hide();
 		$(".araListe2").html("");
 	});
 });
@@ -51,9 +55,13 @@ function ara(aramadiv, listediv) {
         type: "GET",
         data: { arama: arama },
         success: function(data) {
+            if(data.length > 0){
+                $(listediv).show();
+            }
             $(listediv).html(data);
         },
         error: function(data) {
+            $(listediv).show();
             $(listediv).html('<a href="#" class="list-group-item list-group-item-action temaRengi text-white">Arama Başarısız</a>');
         }
     });

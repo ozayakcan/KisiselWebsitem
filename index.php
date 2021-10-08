@@ -136,7 +136,7 @@
 				<ul class="navbar-nav flex-row" style="display:block;width: 200px;">
 					<input id="ara1" class="form-control form-control-sm me-2 temaRengi text-white" type="search" placeholder="Ara" aria-label="Ara">
 				</ul>
-				<div class="list-group araListe1 position-absolute temaRengi" style="display:block;width: 250px;max-height:300px;overflow-y:auto;">
+				<div class="list-group araListe1 position-absolute temaRengi border border-primary" style="display:none;width: 250px;max-height:300px;overflow-y:auto;">
 
 				</div>
 			</div>
@@ -204,7 +204,7 @@
 						<ul class="navbar-nav flex-row" style="display:block;width: 200px;">
 							<input id="ara2" class="form-control form-control-sm me-2 temaRengi text-white" type="search" placeholder="Ara" aria-label="Ara">
 						</ul>
-						<div class="list-group araListe2 position-absolute temaRengi" style="display:block;width: 250px;max-height:300px;overflow-y:auto;">
+						<div class="list-group araListe2 position-absolute temaRengi border border-primary" style="display:none;width: 250px;max-height:300px;overflow-y:auto;">
 
 						</div>
 					</li>
