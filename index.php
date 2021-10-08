@@ -132,11 +132,11 @@
 	<nav class="navbar fixed-top navbar-dark navbar-expand-lg temaRengi row" aria-label="navmenu">
 		<div class="container ps-2 pe-4 m-0 col-12 temaRengi text-white border-bottom border-warning">
 			<a href="/" class="navbar-brand ps-3">Özay Akcan</a>
-			<div id="aradiv" class="order-1 order-lg-2">
+			<div id="aradiv1" class="order-1 order-lg-2 d-md-block d-none">
 				<ul class="navbar-nav flex-row" style="display:block;width: 200px;">
-					<input id="ara" class="form-control form-control-sm me-2 temaRengi text-white" type="search" placeholder="Ara" aria-label="Ara">
+					<input id="ara1" class="form-control form-control-sm me-2 temaRengi text-white" type="search" placeholder="Ara" aria-label="Ara">
 				</ul>
-				<div class="list-group araListe position-absolute temaRengi" style="display:block;width: 250px;max-height:300px;overflow-y:auto;">
+				<div class="list-group araListe1 position-absolute temaRengi" style="display:block;width: 250px;max-height:300px;overflow-y:auto;">
 
 				</div>
 			</div>
@@ -199,6 +199,14 @@
 							?>
 
 						</ul>
+					</li>
+					<li id="aradiv2" class="d-md-none d-block">
+						<ul class="navbar-nav flex-row" style="display:block;width: 200px;">
+							<input id="ara2" class="form-control form-control-sm me-2 temaRengi text-white" type="search" placeholder="Ara" aria-label="Ara">
+						</ul>
+						<div class="list-group araListe2 position-absolute temaRengi" style="display:block;width: 250px;max-height:300px;overflow-y:auto;">
+
+						</div>
 					</li>
 				</ul>
 			</div>
