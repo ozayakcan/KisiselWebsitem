@@ -104,13 +104,13 @@ ALTER TABLE `iletisim_bilgileri`
 -- Tablo için AUTO_INCREMENT değeri `calismalar`
 --
 ALTER TABLE `calismalar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `calismalar_kategori`
 --
 ALTER TABLE `calismalar_kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `iletisim_bilgileri`
