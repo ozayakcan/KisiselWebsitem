@@ -1,325 +1,315 @@
-<!DOCTYPE html>
-<html lang="tr">
+<?php
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
+ * @license	https://opensource.org/licenses/MIT	MIT License
+ * @link	https://codeigniter.com
+ * @since	Version 1.0.0
+ * @filesource
+ */
 
-<head>
-	<?php
-	$klasor = $_SERVER['DOCUMENT_ROOT'];
-	$baglan = $klasor . "/sayfalar/baglan.php";
-	$fonksiyonlar = $klasor . "/sayfalar/fonksiyonlar.php";
-	include($baglan);
-	include($fonksiyonlar);
-	$func = new func;
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ */
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-	$url = $func->url();
-	$domain = $func->domain();
-	$protocol = $func->protocol();
-	?>
-	<meta charset="UTF-8">
-	<meta name="google-site-verification" content="9AQApqs50f4dVbwuzqIiQbI-qqlrZUfFkn1U7UVCFtU">
-	<meta name="yandex-verification" content="f7ec56c391f9f309">
-	<meta name="robots" content="index,follow">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<?php
-	$aciklama = "Aydın Meslek Yüksek Okulu (Aymes) Bilgisayar Programcılığı Öğrencisi";
-	$aktifclass = " aktif";
-	$currentPageOzelligi = " aria-current=\"page\"";
-	$anasayfaclass = $aktifclass;
-	$anasayfacurrentpage = $currentPageOzelligi;
-	$hakkimdaclass = "";
-	$hakkimdacurrentpage = "";
-	$iletisimclass = "";
-	$iletisimcurrentpage = "";
-	$fotogalericlass = "";
-	$fotogalericurrentpage = "";
-	$linklerclass = "";
-	$linklercurrentpage = "";
-	$calismalarclass = "";
-	$calismalarcurrentpage = "";
-	if (isset($_GET["sayfa"])) {
-		switch ($_GET["sayfa"]) {
-			case 'hakkimda':
-				$anasayfaclass = "";
-				$anasayfacurrentpage = "";
-				$hakkimdaclass = $aktifclass;
-				$hakkimdacurrentpage = $currentPageOzelligi;
-				echo '<meta name="description" content="Özay Akcan, ' . $aciklama . '">';
-				echo '<title>Hakkımda - Özay Akcan</title>';
-				break;
-			case 'iletisim':
-				$anasayfaclass = "";
-				$anasayfacurrentpage = "";
-				$iletisimclass = $aktifclass;
-				$iletisimcurrentpage = $currentPageOzelligi;
-				echo '<meta name="description" content="Özay Akcan iletişim bilgileri, ' . $aciklama . '">';
-				echo '<title>İletişim - Özay Akcan</title>';
-				break;
-			/*case 'fotogaleri':
-				$anasayfaclass = "";
-				$anasayfacurrentpage = "";
-				$fotogalericlass = $aktifclass;
-				$fotogalericurrentpage = $currentPageOzelligi;
-				echo '<meta name="description" content="Özay Akcan foto galeri, ' . $aciklama . '">';
-				echo '<title>Foto Galeri - Özay Akcan</title>';
-				break;*/
-			case 'linkler':
-				$anasayfaclass = "";
-				$anasayfacurrentpage = "";
-				$linklerclass = $aktifclass;
-				$linklercurrentpage = $currentPageOzelligi;
-				echo '<meta name="description" content="Özay Akcan linkler sayfası, ' . $aciklama . '">';
-				echo '<title>Linkler - Özay Akcan</title>';
-				break;
-			case 'calismalar':
-				$anasayfaclass = "";
-				$anasayfacurrentpage = "";
-				$calismalarclass = $aktifclass;
-				$calismalarcurrentpage = $currentPageOzelligi;
-				echo '<meta name="description" content="Özay Akcan çalışmalar, ' . $aciklama . '">';
-				echo '<title>Çalışmalarım - Özay Akcan</title>';
-				break;
-			case 'calisma':
-				$anasayfaclass = "";
-				$anasayfacurrentpage = "";
-				$calismalarclass = $aktifclass;
-				$calismalarcurrentpage = $currentPageOzelligi;
-				echo '<meta name="description" content="Özay Akcan çalışmalar, ' . $aciklama . '">';
-				break;
-			case '404':
-				$anasayfaclass = "";
-				$anasayfacurrentpage = "";
-				echo '<meta name="description" content="Özay Akcan, ' . $aciklama . '">';
-				echo "<title>Sayfa Bulunamadı - Özay Akcan</title>";
-				break;
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
+switch (ENVIRONMENT)
+{
+	case 'development':
+		error_reporting(-1);
+		ini_set('display_errors', 1);
+	break;
 
-			default:
-				$anasayfaclass = "";
-				$anasayfacurrentpage = "";
-				echo '<meta name="description" content="Özay Akcan, ' . $aciklama . '">';
-				echo "<title>Sayfa Bulunamadı - Özay Akcan</title>";
-				break;
+	case 'testing':
+	case 'production':
+		ini_set('display_errors', 0);
+		if (version_compare(PHP_VERSION, '5.3', '>='))
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
 		}
-	} else {
-		echo '<meta name="description" content="Özay Akcan, ' . $aciklama . '">';
-		echo '<title>Özay Akcan</title>';
+		else
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+		}
+	break;
+
+	default:
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'The application environment is not set correctly.';
+		exit(1); // EXIT_ERROR
+}
+
+/*
+ *---------------------------------------------------------------
+ * SYSTEM DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" directory.
+ * Set the path if it is not in the same directory as this file.
+ */
+	$system_path = 'system';
+
+/*
+ *---------------------------------------------------------------
+ * APPLICATION DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * directory than the default one you can set its name here. The directory
+ * can also be renamed or relocated anywhere on your server. If you do,
+ * use an absolute (full) server path.
+ * For more info please see the user guide:
+ *
+ * https://codeigniter.com/userguide3/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ */
+	$application_folder = 'application';
+
+/*
+ *---------------------------------------------------------------
+ * VIEW DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want to move the view directory out of the application
+ * directory, set the path to it here. The directory can be renamed
+ * and relocated anywhere on your server. If blank, it will default
+ * to the standard location inside your application directory.
+ * If you do move this, use an absolute (full) server path.
+ *
+ * NO TRAILING SLASH!
+ */
+	$view_folder = '';
+
+
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here. For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT: If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller. Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ */
+	// The directory name, relative to the "controllers" directory.  Leave blank
+	// if your controller is not in a sub-directory within the "controllers" one
+	// $routing['directory'] = '';
+
+	// The controller class file name.  Example:  mycontroller
+	// $routing['controller'] = '';
+
+	// The controller function you wish to be called.
+	// $routing['function']	= '';
+
+
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ */
+	// $assign_to_config['name_of_config_item'] = 'value of config item';
+
+
+
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
+
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
+
+	// Set the current directory correctly for CLI requests
+	if (defined('STDIN'))
+	{
+		chdir(dirname(__FILE__));
 	}
-	?>
 
-	<meta name="author" content="Özay Akcan">
-	<link rel="shortcut icon" href="/images/favicon.png" />
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-90ELK27RSE"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
+	if (($_temp = realpath($system_path)) !== FALSE)
+	{
+		$system_path = $_temp.DIRECTORY_SEPARATOR;
+	}
+	else
+	{
+		// Ensure there's a trailing slash
+		$system_path = strtr(
+			rtrim($system_path, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		).DIRECTORY_SEPARATOR;
+	}
 
-		function gtag() {
-			dataLayer.push(arguments);
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
+		exit(3); // EXIT_CONFIG
+	}
+
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+
+	// Path to the system directory
+	define('BASEPATH', $system_path);
+
+	// Path to the front controller (this file) directory
+	define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
+
+	// Name of the "system" directory
+	define('SYSDIR', basename(BASEPATH));
+
+	// The path to the "application" directory
+	if (is_dir($application_folder))
+	{
+		if (($_temp = realpath($application_folder)) !== FALSE)
+		{
+			$application_folder = $_temp;
 		}
-		gtag('js', new Date());
+		else
+		{
+			$application_folder = strtr(
+				rtrim($application_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(BASEPATH.$application_folder.DIRECTORY_SEPARATOR))
+	{
+		$application_folder = BASEPATH.strtr(
+			trim($application_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
 
-		gtag('config', 'G-90ELK27RSE');
-	</script>
-	<script src="/js/fonksiyonlar.js" type="text/javascript" async defer></script>
-	<script src="/js/ara.js" type="text/javascript" async defer></script>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
-</head>
+	define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
 
-<body>
-	<nav class="navbar fixed-top navbar-dark navbar-expand-lg temaRengi row" aria-label="navmenu">
-		<div class="container ps-2 pe-4 m-0 col-12 temaRengi text-white border-bottom border-warning">
-			<a href="/" class="navbar-brand ps-3">Özay Akcan</a>
-			<div id="aradiv1" class="order-1 order-lg-2 d-md-block d-none">
-				<ul class="navbar-nav flex-row" style="display:block;width: 200px;">
-					<input id="ara1" class="form-control form-control-sm me-2 temaRengi text-white" type="search" placeholder="Ara" aria-label="Ara">
-				</ul>
-				<div class="list-group araListe1 position-absolute temaRengi border border-primary" style="display:none;width: 250px;max-height:300px;overflow-y:auto;">
+	// The path to the "views" directory
+	if ( ! isset($view_folder[0]) && is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.'views';
+	}
+	elseif (is_dir($view_folder))
+	{
+		if (($_temp = realpath($view_folder)) !== FALSE)
+		{
+			$view_folder = $_temp;
+		}
+		else
+		{
+			$view_folder = strtr(
+				rtrim($view_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(APPPATH.$view_folder.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.strtr(
+			trim($view_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
 
-				</div>
-			</div>
-			<div class="d-flex flex-row order-2 order-lg-3">
-				<ul class="navbar-nav flex-row">
-					<li class="nav-item"><a class="nav-link px-2 text-white sosyal-medya facebook animate__animated animate__shakeY" target="_blank" href="https://www.facebook.com/"><span class="fab fa-facebook" style="font-size:1.1rem;"></span></a></li>
-					<li class="nav-item"><a class="nav-link px-2 text-white sosyal-medya instagram animate__animated animate__shakeY" target="_blank" href="https://www.instagram.com/"><span class="fab fa-instagram" style="font-size:1.1rem;"></span></a></li>
-					<li class="nav-item"><a class="nav-link px-2 text-white sosyal-medya twitter animate__animated animate__shakeY" target="_blank" href="https://www.twitter.com/"><span class="fab fa-twitter" style="font-size:1.1rem;"></span></a></li>
-				</ul>
-				<button type="button" class="menu-butonu navbar-toggler text-white" data-bs-toggle="collapse" data-bs-target="#ustmenu" aria-controls="ustmenu">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-			</div>
+	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
 
-			<div id="ustmenu" class="collapse navbar-collapse">
-				<ul class="navbar-nav ms-auto navmenu">
-					<li class="nav-item px-3<?= $anasayfaclass; ?>">
-						<a href="/" class="nav-link text-white" <?= $anasayfacurrentpage; ?>>Anasayfa</a>
-					</li>
-					<li class="nav-item px-3<?= $hakkimdaclass; ?>">
-						<a href="/hakkimda.html" class="nav-link text-white" <?= $hakkimdacurrentpage; ?>>Hakkımda</a>
-					</li>
-					<li class="nav-item px-3<?= $iletisimclass; ?>">
-						<a href="/iletisim.html" class="nav-link text-white" <?= $iletisimcurrentpage; ?>>İletişim</a>
-					</li>
-					<li class="nav-item px-3<?= $linklerclass; ?>">
-						<a href="/linkler.html" class="nav-link text-white" <?= $linklercurrentpage; ?>>Linkler</a>
-					</li>
-					<!--<li class="nav-item px-2 dropdown">
-						<a href="#" id="altsayfalar-butonu" class="nav-link text-white dropdown-toggle" id="altsayfalarButon" data-bs-toggle="dropdown" aria-expanded="false">Alt Sayfalarım</a>
-						<ul id="acilir-menu" class="dropdown-menu temaRengi" aria-labelledby="altsayfalarButon">
-							<?php
-							$altsayfalar_navbar_sql = "SELECT * FROM altsayfalar ORDER BY id";
-							$altsayfalar_navbar_conn = $conn->query($altsayfalar_navbar_sql);
-							if (mysqli_num_rows($altsayfalar_navbar_conn) > 0) {
-								while ($altsayfalar_menu = $altsayfalar_navbar_conn->fetch_assoc()) {
-									echo '<li><a class="dropdown-item text-white text-lg-center" target="_blank" href="'.$protocol.$altsayfalar_menu["link"].'.'.$domain.'/">' . $altsayfalar_menu["adi"] . '</a></li>';
-								}
-							} else {
-								echo '<li><a class="dropdown-item text-white text-lg-center" href="javascript:;">Eklenecek</a></li>';
-							}
-							?>
-
-						</ul>
-					</li>-->
-					<li class="nav-item px-3<?= $calismalarclass; ?> dropdown">
-						<a href="#" id="calismalar-butonu" class="nav-link text-white dropdown-toggle" id="calismalarButon" data-bs-toggle="dropdown" aria-expanded="false" <?= $calismalarcurrentpage; ?>>Çalışmalarım</a>
-						<ul id="acilir-menu" class="dropdown-menu temaRengi" aria-labelledby="calismalarButon">
-							<?php
-							$calismalar_navbar_sql = "SELECT * FROM (SELECT * FROM calismalar_kategori ORDER BY id DESC LIMIT 6) tmp ORDER BY tmp.id ASC LIMIT 6";
-							$calismalar_navbar_conn = $conn->query($calismalar_navbar_sql);
-							if (mysqli_num_rows($calismalar_navbar_conn) > 0) {
-								while ($calismalar_menu = $calismalar_navbar_conn->fetch_assoc()) {
-									echo '<li><a class="dropdown-item text-white text-lg-center" href="/calismalar/' . $calismalar_menu["seo"] . '.html">' . $calismalar_menu["adi"] . '</a></li>';
-								}
-								echo '<li><a class="dropdown-item text-white text-lg-center" href="/calismalar.html" style="text-decoration:underline;">Daha Fazlası</a></li>';
-							} else {
-								echo '<li><a class="dropdown-item text-white text-lg-center" href="javascript:;">Eklenecek</a></li>';
-							}
-							?>
-
-						</ul>
-					</li>
-					<li id="aradiv2" class="d-md-none d-block">
-						<ul class="navbar-nav flex-row" style="display:block;width: 200px;">
-							<input id="ara2" class="form-control form-control-sm me-2 temaRengi text-white" type="search" placeholder="Ara" aria-label="Ara">
-						</ul>
-						<div class="list-group araListe2 position-absolute temaRengi border border-primary" style="display:none;width: 250px;max-height:300px;overflow-y:auto;">
-
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<div id="icerik" class="d-flex flex-column justify-content-center p-1">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-12 text-white text-center">
-					<?php
-					if (isset($_GET["sayfa"])) {
-						switch ($_GET["sayfa"]) {
-							case 'hakkimda':
-								include("sayfalar/hakkimda.php");
-								break;
-							/*case 'fotogaleri':
-								include("sayfalar/fotogaleri.php");
-								break;*/
-							case 'iletisim':
-								include("sayfalar/iletisim.php");
-								break;
-							case 'linkler':
-								include("sayfalar/linkler.php");
-								break;
-							case 'calismalar':
-								include("sayfalar/calismalar.php");
-								break;
-							case 'calisma':
-								include("sayfalar/calisma.php");
-								break;
-							case '404':
-								include("sayfalar/404.php");
-								break;
-							default:
-								include("sayfalar/404.php");
-								break;
-						}
-					} else {
-						include("sayfalar/anasayfa.php");
-					}
-					?>
-				</div>
-			</div>
-		</div>
-	</div>
-	<footer class="page-footer font-small pt-4 text-white temaRengi">
-		<div class="container-fluid text-center text-md-left">
-			<div class="row w-100">
-				<div class="col-md-6 mb-md-0 mb-3">
-					<h6 style="height: 30px;">Çalışmalarım</h6>
-					<ul id="altkisim" class="list-unstyled">
-						<?php
-						$calismalar_footer_sql = "SELECT * FROM (SELECT * FROM calismalar_kategori ORDER BY id DESC LIMIT 6) tmp ORDER BY tmp.id ASC LIMIT 6";
-						$calismalar_footer_conn = $conn->query($calismalar_footer_sql);
-						if (mysqli_num_rows($calismalar_footer_conn) > 0) {
-							while ($calismalar_footer = $calismalar_footer_conn->fetch_assoc()) {
-								echo '<li><h7><a href="/calismalar/' . $calismalar_footer["seo"] . '.html" class="text-white text-decoration-none">' . $calismalar_footer["adi"] . '</a></h7></li>';
-							}
-							echo '<li><h7><a href="/calismalar" class="text-white">Daha Fazlası</a></h7></li>';
-						} else {
-							echo '<li><h7><a href="javascript:;" class="text-white text-decoration-none">Eklecenek</a></h7></li>';
-						}
-						?>
-					</ul>
-				</div>
-				<div class="col-md-6 mb-md-0 mb-3">
-					<h6 style="height: 30px;">İletişim</h6>
-					<ul id="altkisim" class="list-unstyled">
-						<?php
-						$iletisim_sql = "SELECT * FROM iletisim_bilgileri";
-						$iletisim_conn = $conn->query($iletisim_sql);
-						if (mysqli_num_rows($iletisim_conn) > 0) {
-							while ($iletisim = $iletisim_conn->fetch_assoc()) {
-								$iletisimadresi = $iletisim["bilgi"];
-								if($iletisim["yerel"] == 1){
-									$iletisimadresi = $iletisim["bilgi"]."@".$domain;
-								}
-								echo '<li>
-								<h7><i class="' . $iletisim["fa_icon"] . '" aria-hidden="true"></i> ' . $iletisimadresi . '</h7>
-							</li>';
-							}
-						}
-						?>
-					</ul>
-				</div>
-
-			</div>
-		</div>
-		<div class="col-12 d-flex justify-content-center">
-			<ul class="list-unstyled">
-				<?php
-				$linkler_1_sql = "SELECT * FROM linkler WHERE tur='1' ORDER BY id ASC";
-				$linkler_1_conn = $conn->query($linkler_1_sql);
-				if (mysqli_num_rows($linkler_1_conn) > 0) {
-					while ($linkler_1 = $linkler_1_conn->fetch_assoc()) {
-						$linki = $linkler_1["linki"];
-						$aciklama = $linkler_1["adi"] . "'" . $linkler_1["ek"] . " websitesine gitmek için tıklayın.";
-						$target = ' target="_blank"';
-						if (!filter_var($linkler_1["linki"], FILTER_VALIDATE_URL)) {
-							$linki = "javascript:;";
-							$aciklama = $linkler_1["adi"] . "'" . $linkler_1["ek"] . " websitesi henüz eklenmedi.";
-							$target = '';
-						}
-						echo '<li class="float-sm-start"><a class="text-decoration-none btn btn-outline-primary text-white m-1" style="width:250px;" title="' . $aciklama . '" alt="' . $aciklama . '"' . $target . ' href="' . $linki . '">' . $linkler_1["adi"] . '</a></li>';
-					}
-				}
-				?>
-			</ul>
-		</div>
-		<div class="footer-copyright text-center py-3">© 2020
-			<a href="<?= $url; ?>" class="text-white text-decoration-none">Özay Akcan</a>
-		</div>
-	</footer>
-</body>
-
-</html>
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ */
+require_once BASEPATH.'core/CodeIgniter.php';

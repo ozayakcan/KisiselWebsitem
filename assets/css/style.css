@@ -1,0 +1,337 @@
+@charset "utf-8";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    height: 55px;
+}
+
+img:active {
+    pointer-events: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.temaRengi {
+    background-color: #03002e !important;
+}
+
+ul#altkisim li a,
+.sosyal-medya,
+.araListe1 a,
+.araListe2 a,
+#ustmenu ul li:not(.aktif) a,
+.dropdown-menu>li>a {
+    transition: color .3s;
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:active {
+    background-image: none;
+    background-color: transparent !important;
+}
+
+#ara1::placeholder,
+#ara2::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 1;
+}
+
+#ara1:-ms-input-placeholder,
+#ara1::-ms-input-placeholder,
+#ara2:-ms-input-placeholder,
+#ara2::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+ul#altkisim>li a:hover,
+.sosyal-medya:hover,
+#ustmenu>ul>li:not(.aktif)>a:hover {
+    background-color: transparent !important;
+    color: #FFFFFFC8 !important;
+}
+
+.araListe a:hover,
+.araListe2 a:hover {
+    color: #FFFFFFC8 !important;
+}
+
+.sosyal-medya.facebook {
+    animation-delay: .1s;
+}
+
+.sosyal-medya.instagram {
+    animation-delay: .4s;
+}
+
+.sosyal-medya.twitter {
+    animation-delay: .7s;
+}
+
+.list-group li a:not(.eklenmedi):hover,
+.alticizgilihv:hover {
+    text-decoration: underline !important;
+}
+
+li.aktif,
+li.aktif ul#acilir-menu {
+    background-color: #fff !important;
+}
+
+li.aktif a {
+    color: #000 !important;
+}
+
+li.aktif ul#acilir-menu {
+    border: none;
+}
+
+ul#acilir-menu li:hover a {
+    color: #aaa !important;
+}
+
+li:hover ul#acilir-menu {
+    display: block;
+}
+
+.menu-butonu .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+#icerik {
+    width: 100%;
+    margin-top: 55px;
+    min-height: calc(100vh - 120px);
+    background: url('../images/arkaplan.jpg') top center;
+    background-size: cover;
+    position: relative;
+}
+
+.transparan {
+    background-color: #5858588a !important;
+}
+
+.transparan-beyaz {
+    background-color: rgba(255, 255, 255, .7) !important;
+}
+
+.hakkimda-resim {
+    background: url('../images/profilresmi.jpg');
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 150px !important;
+}
+
+.calisma img {
+    transition: transform .3s;
+}
+
+.calisma img:hover {
+    transform: scale(1.1);
+}
+
+.calisma-resim {
+    height: 210px;
+    width: 210px;
+    background-size: 190px 190px !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    transition: background-size .3s;
+}
+
+.calisma-resim:hover {
+    background-size: 200px 200px !important;
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+    .calisma-resim {
+        height: 150px;
+        width: 150px;
+        background-size: 120px 120px !important;
+    }
+
+    .calisma-resim:hover {
+        background-size: 140px 140px !important;
+    }
+}
+
+.fs-transform {
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+    transition: font-size .3s;
+}
+
+.fs-transform:hover {
+    font-size: 17px;
+}
+
+.list-group li a {
+    color: rgba(255, 255, 255, 1.0);
+}
+
+.list-group li a.eklenmedi {
+    color: rgba(255, 255, 255, .7);
+}
+
+form.iletisim .form-group label.placeholder {
+    display: block;
+    margin-left: 3px;
+    position: absolute;
+    font-size: 16px;
+    color: #fff;
+    cursor: text;
+}
+
+form.iletisim .form-group label.placeholder.aktif {
+    color: #ffc107;
+}
+
+form.iletisim .form-group textarea,
+form.iletisim .form-group input {
+    border: 1px solid #fff;
+}
+
+form.iletisim .form-group {
+    width: 304px;
+}
+
+form.iletisim .form-group textarea:focus,
+form.iletisim .form-group input:focus {
+    border: 1px solid #ffc107 !important;
+    box-shadow: none;
+}
+
+.yukleniyor {
+    width: 100%;
+    display: none;
+}
+
+.yukleniyor1 {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    position: relative;
+    animation: yukleniyor1 2.5s infinite linear both;
+}
+
+.yukleniyor2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: yukleniyor2 2.0s infinite ease-in-out both;
+}
+
+.yukleniyor2:before {
+    content: '';
+    display: block;
+    width: 25%;
+    height: 25%;
+    background-color: green;
+    border-radius: 100%;
+    animation: yukleniyor2-before 2.0s infinite ease-in-out both;
+}
+
+.yukleniyor2:nth-child(1) {
+    animation-delay: -1.1s;
+}
+
+.yukleniyor2:nth-child(2) {
+    animation-delay: -1.0s;
+}
+
+.yukleniyor2:nth-child(3) {
+    animation-delay: -0.9s;
+}
+
+.yukleniyor2:nth-child(4) {
+    animation-delay: -0.8s;
+}
+
+.yukleniyor2:nth-child(5) {
+    animation-delay: -0.7s;
+}
+
+.yukleniyor2:nth-child(6) {
+    animation-delay: -0.6s;
+}
+
+.yukleniyor2:nth-child(1):before {
+    animation-delay: -1.1s;
+}
+
+.yukleniyor2:nth-child(2):before {
+    animation-delay: -1.0s;
+}
+
+.yukleniyor2:nth-child(3):before {
+    animation-delay: -0.9s;
+}
+
+.yukleniyor2:nth-child(4):before {
+    animation-delay: -0.8s;
+}
+
+.yukleniyor2:nth-child(5):before {
+    animation-delay: -0.7s;
+}
+
+.yukleniyor2:nth-child(6):before {
+    animation-delay: -0.6s;
+}
+
+@keyframes yukleniyor1 {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes yukleniyor2 {
+
+    80%,
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes yukleniyor2-before {
+    50% {
+        transform: scale(0.4);
+    }
+
+    100%,
+    0% {
+        transform: scale(1.0);
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    #icerik {
+        background-attachment: fixed;
+    }
+}
+
+.carousel-inner>.carousel-item img {
+    max-height: 540px;
+}

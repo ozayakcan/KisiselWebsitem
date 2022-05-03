@@ -1,16 +1,4 @@
-DirectoryIndex index.php
-RewriteEngine On
-AddDefaultCharset UTF-8
-php_value default_charset UTF-8
-php_flag display_errors off
-
-ErrorDocument 404   /index.php?sayfa=404
-
-RewriteRule ^index.html(/?)+$    index.php
-RewriteRule ^hakkimda.html(/?)+$    index.php?sayfa=hakkimda
-RewriteRule ^iletisim.html(/?)+$    index.php?sayfa=iletisim
-RewriteRule ^linkler.html(/?)+$    index.php?sayfa=linkler
-RewriteRule ^calismalar.html(/?)+$    index.php?sayfa=calismalar
-RewriteRule ^calismalar/([a-zA-Z0-9-_]+).html(/?)+$    index.php?sayfa=calisma&calisma=$1
-RewriteRule ^ajax/iletisim(/?)+$    ajax/iletisim.php
-RewriteRule ^ajax/ara(/?)+$    ajax/ara.php
+RewriteEngine ON
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php/$1 [L]
